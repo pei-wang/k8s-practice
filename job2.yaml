@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: bbj
+spec:
+  completions: 5
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/sh
+        - -c
+        - echo hello; sleep 30; echo world
+        image: busybox
+        name: bbj
+        resources: {}
+      restartPolicy: Never
+status: {}
